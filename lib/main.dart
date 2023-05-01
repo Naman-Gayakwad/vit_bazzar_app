@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
+import 'package:vit_bazzar_app/screens/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Splash(),
     );
   }
 }
@@ -71,12 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      
       body: MainPage(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        // This trailing comma makes auto-formatting nicer for build methods.
-    ),
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          // This trailing comma makes auto-formatting nicer for build methods.
+          ),
     );
   }
 }
