@@ -82,7 +82,10 @@ class _MainPageState extends State<MainPage> {
                 selectedItemColor: Colors.white,
                 unselectedItemColor: Colors.black,
                 showSelectedLabels: true,
-                showUnselectedLabels: true,    
+                showUnselectedLabels: true,  
+                type: BottomNavigationBarType.fixed,
+                
+                backgroundColor:Color(0xFF1778F2) ,  
                 items: const [
                   BottomNavigationBarItem(
                     label:"Home",icon:Icon(Icons.home_outlined),backgroundColor: Color(0xFF1778F2),),
