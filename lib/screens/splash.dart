@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:vit_bazzar_app/main.dart';
+import 'package:vit_bazzar_app/screens/mainpage.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -12,14 +15,10 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    _navigatetohome();
-  }
-
-  _navigatetohome() async {
-    await Future.delayed(const Duration(milliseconds: 1500), () {});
-    // ignore: use_build_context_synchronously
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => const MyHomePage(title: 'fgf')));
+    Timer(const Duration(seconds: 2), () {
+       Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => MainPage()));
+    });
   }
 
   double fem = 1;

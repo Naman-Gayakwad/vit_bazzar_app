@@ -11,7 +11,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 225, 51, 238),
+      backgroundColor: Colors.white,
     );
   }
 }

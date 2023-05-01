@@ -39,10 +39,12 @@ class _MainPageState extends State<MainPage> {
                 
             centerTitle: true,
             bottom: const PreferredSize(
-              preferredSize: Size.fromHeight(4),
+              preferredSize: Size.fromHeight(18),
               child: Padding(
-                padding: EdgeInsets.all(5.0),
+                padding:  EdgeInsets.fromLTRB(18, 8, 18, 8),
+                
                 child: TextField(
+                   
                   decoration: InputDecoration(
                       hintText: 'Search in vit.bazzar.in',
                       prefixIcon: Icon(Icons.search),
@@ -61,8 +63,8 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: const Color(0xFF1778F2),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(15),
-                bottomRight: Radius.circular(15),
+                bottomLeft: Radius.circular(18),
+                bottomRight: Radius.circular(18),
               )
             ),
             
