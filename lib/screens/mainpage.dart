@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromRGBO(23, 120, 242, 100),
+      color: const Color(0xFF1778F2),
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             foregroundColor: Colors.transparent,
-            backgroundColor: const Color.fromRGBO(23, 120, 242, 100),
+            backgroundColor: const Color(0xFF1778F2),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(15),
@@ -83,15 +83,15 @@ class _MainPageState extends State<MainPage> {
                 showUnselectedLabels: true,    
                 items: const [
                   BottomNavigationBarItem(
-                    label:"Home",icon:Icon(Icons.home_outlined),backgroundColor: Color.fromRGBO(23, 120, 242, 100),),
+                    label:"Home",icon:Icon(Icons.home_outlined),backgroundColor: Color(0xFF1778F2),),
                   BottomNavigationBarItem(
-                    label:"My Order",icon:Icon(Icons.mode_of_travel_rounded),backgroundColor: Color.fromRGBO(23, 120, 242, 100),),
+                    label:"My Order",icon:Icon(Icons.mode_of_travel_rounded),backgroundColor: Color(0xFF1778F2),),
                   BottomNavigationBarItem(
-                    label:"Favorite",icon:Icon(Icons.favorite_border_outlined),backgroundColor: Color.fromRGBO(23, 120, 242, 100),),
+                    label:"Favorite",icon:Icon(Icons.favorite_border_outlined),backgroundColor: Color(0xFF1778F2),),
                   BottomNavigationBarItem(
-                    label:"Cart",icon:Icon(Icons.local_mall_outlined),backgroundColor: Color.fromRGBO(23, 120, 242, 100),),//local_grocery_store_outlined, shopping_bag_outlined
+                    label:"Cart",icon:Icon(Icons.local_mall_outlined),backgroundColor: Color(0xFF1778F2),),//local_grocery_store_outlined, shopping_bag_outlined
                   BottomNavigationBarItem(
-                    label:"Profile",icon:Icon(Icons.person_outline_rounded),backgroundColor: Color.fromRGBO(23, 120, 242, 100),), // account_circle_outlined
+                    label:"Profile",icon:Icon(Icons.person_outline_rounded),backgroundColor: Color(0xFF1778F2),), // account_circle_outlined
                 ],
                 
                 
