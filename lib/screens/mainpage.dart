@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
             bottom: const PreferredSize(
               preferredSize: Size.fromHeight(18),
               child: Padding(
-                padding:  EdgeInsets.fromLTRB(18, 8, 18, 8),
+                padding:  EdgeInsets.fromLTRB(18, 13, 18, 12),
                 
                 child: TextField(
                    
