@@ -1,9 +1,22 @@
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:vit_bazzar_app/screens/login.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:vit_bazzar_app/screens/splash.dart';
 
+// void main() {
+//   runApp(const MyApp());
+// }
+
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    initialRoute: 'login',
+    routes: {
+      'login': (context)=>MyLogin()
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
