@@ -46,7 +46,7 @@ class _SplashState extends State<Splash> {
                 width: 300,
                 height: 500,
                 child: Image.asset(
-                  '/images/loading_screen_vander.png',
+                  'assets/images/loading_screen_vander.png',
                 ),
               ),
               Container(
@@ -54,7 +54,7 @@ class _SplashState extends State<Splash> {
                 width: 366,
                 height: 52,
                 child: Image.asset(
-                  '/images/loading_screen_logo.png',
+                  'assets/images/loading_screen_logo.png',
                   fit: BoxFit.cover,
                 ),
               ),
