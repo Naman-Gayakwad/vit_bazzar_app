@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>673785503092-cj624t2c78g65n0qf9211n43kgl44h51.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.673785503092-cj624t2c78g65n0qf9211n43kgl44h51</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>673785503092-hvq1o14teg226je4tc8eh5oalbmj4tr9.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDFOaG3OmUOW8zHtwNimrvI7w0ofq6oMlI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>673785503092</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.vitBazzarApp</string>
+	<key>PROJECT_ID</key>
+	<string>vit-bazzar-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vit-bazzar-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:673785503092:ios:5f2afab23e6206166b6021</string>
+</dict>
+</plist>

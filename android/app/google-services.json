@@ -22,7 +22,7 @@
           }
         },
         {
-          "client_id": "673785503092-pqrdjfcpppdt9qumsi0t7i9dbpjflm1u.apps.googleusercontent.com",
+          "client_id": "673785503092-egb62t5m0douhejq4fpckj7hdhefnp7d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -35,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "673785503092-pqrdjfcpppdt9qumsi0t7i9dbpjflm1u.apps.googleusercontent.com",
+              "client_id": "673785503092-egb62t5m0douhejq4fpckj7hdhefnp7d.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "673785503092-cj624t2c78g65n0qf9211n43kgl44h51.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vitBazzarApp"
+              }
             }
           ]
         }
