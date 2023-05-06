@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:vit_bazzar_app/main.dart';
+import 'package:vit_bazzar_app/screens/login.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:vit_bazzar_app/utils/widget_tree.dart';
 
@@ -15,10 +17,11 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
+    
     super.initState();
     Timer(const Duration(seconds: 2), () {
        Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => WidgetTree()));
+              context, MaterialPageRoute(builder: (context) => MyLogin()));
     });
   }
 

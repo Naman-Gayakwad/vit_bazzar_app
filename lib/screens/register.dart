@@ -273,11 +273,11 @@ class _MyRegisterState extends State<MyRegister> {
                                       children: const [
                                         SquareTile(
                                             imagePath:
-                                                'assets/images/google_logo.png'),
+                                                'assets/images/google_logo.png', controller: null,),
                                         SizedBox(width: 20),
                                         SquareTile(
                                             imagePath:
-                                                'assets/images/apple_logo.png')
+                                                'assets/images/apple_logo.png', controller: null,)
                                       ],
                                     ),
                                     const SizedBox(height: 20),

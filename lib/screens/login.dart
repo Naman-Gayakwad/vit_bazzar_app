@@ -1,14 +1,19 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
+import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:vit_bazzar_app/screens/test_homescreen.dart';
 import 'package:vit_bazzar_app/utils/square_tile.dart';
 import 'package:vit_bazzar_app/utils/reusable_widget.dart';
 import 'package:vit_bazzar_app/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'home.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -163,8 +168,10 @@ class _MyLoginState extends State<MyLogin> {
   String? errorMessage = '';
   bool isLogin = true;
 
-  TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
+  final RoundedLoadingButtonController googleController =
+      RoundedLoadingButtonController(); 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -236,7 +243,7 @@ class _MyLoginState extends State<MyLogin> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    HomeScreen()));
+                                                    MainPage()));
                                       }).onError((error, stackTrace) {
                                         print("Error ${error.toString()}");
                                       });
@@ -245,16 +252,29 @@ class _MyLoginState extends State<MyLogin> {
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      children: const [
-                                        SquareTile(
-                                            imagePath:
-                                                'assets/images/google_logo.png'),
-                                        SizedBox(width: 20),
-                                        SquareTile(
-                                            imagePath:
-                                                'assets/images/apple_logo.png')
+                                      children:  [
+                                        RoundedLoadingButton(
+                                          controller: googleController, 
+                                          onPressed: (){
+                                            Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    MainPage()));
+                                          }, 
+                                          child:Image.asset('assets/images/google_logo.png')
+                                          ),
+
+                                        // SquareTile(
+                                        //     imagePath:
+                                        //         'assets/images/google_logo.png', controller: null,),
+                                        // SizedBox(width: 20),
+                                        // SquareTile(
+                                        //     imagePath:
+                                        //         'assets/images/apple_logo.png', controller: null,)
                                       ],
                                     ),
+          
                                     const SizedBox(height: 20),
                                     signUpOption()
                                   ],
@@ -307,3 +327,27 @@ class _MyLoginState extends State<MyLogin> {
   //   );
   // }
 }
+// RoundedLoadingButton(
+                                        //   controller: googleController, 
+                                        //   onPressed: () {
+                                        //     Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             MainPage()));
+                                        //   }, 
+                                        //   child: SquareTile(
+                                        //     imagePath:
+                                        //         'assets/images/google_logo.png', controller: null,),),
+                                         // RoundedLoadingButton(
+                                        //   controller: googleController, 
+                                        //   onPressed: () {
+                                        //     Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             MainPage()));
+                                        //   }, 
+                                        //   child: SquareTile(
+                                        //     imagePath:
+                                        //         'assets/images/apple_logo.png', controller: null,),),
