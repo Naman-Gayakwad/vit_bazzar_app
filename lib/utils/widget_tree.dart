@@ -1,4 +1,4 @@
-import 'package:vit_bazzar_app/auth.dart';
+import 'package:vit_bazzar_app/utils/auth.dart';
 import 'package:vit_bazzar_app/screens/login.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:flutter/material.dart';

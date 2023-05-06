@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:vit_bazzar_app/main.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
-import 'package:vit_bazzar_app/widget_tree.dart';
+import 'package:vit_bazzar_app/utils/widget_tree.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
