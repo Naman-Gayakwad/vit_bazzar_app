@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vit_bazzar_app/screens/login.dart';
+import 'package:vit_bazzar_app/screens/mainpage.dart';
+import 'package:vit_bazzar_app/screens/test_homescreen.dart';
 import 'package:vit_bazzar_app/utils/square_tile.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import '../utils/reusable_widget.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({super.key});
@@ -181,8 +185,10 @@ Widget buildRegisterBtn() {
   );
 }
 
-
 class _MyRegisterState extends State<MyRegister> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _userNameTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -225,23 +231,57 @@ class _MyRegisterState extends State<MyRegister> {
                                           color: Colors.white, fontSize: 32),
                                     ),
                                     const SizedBox(height: 50),
-                                    buildName(),
+                                    reusableTextField(
+                                        "Enter Your Username",
+                                        Icons.person_2_rounded,
+                                        false,
+                                        _userNameTextController),
                                     const SizedBox(height: 20),
-                                    buildEmail(),
+                                    reusableTextField(
+                                        "Enter Your Email Id",
+                                        Icons.email,
+                                        false,
+                                        _emailTextController),
                                     const SizedBox(height: 20),
-                                    buildPassword(),
+                                    reusableTextField(
+                                        "Enter Your Password",
+                                        Icons.lock,
+                                        true,
+                                        _passwordTextController),
                                     const SizedBox(height: 20),
-                                    buildRegisterBtn(),
+                                    firebaseUIButton(context, "Sign Up", () {
+                                      FirebaseAuth.instance
+                                          .createUserWithEmailAndPassword(
+                                              email: _emailTextController.text,
+                                              password:
+                                                  _passwordTextController.text)
+                                          .then((value) {
+                                        print("Created New Account");
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomeScreen()));
+                                      }).onError((error, stackTrace) {
+                                        print("Error ${error.toString()}");
+                                      });
+                                    }),
                                     const SizedBox(height: 30),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: const [
-                                      SquareTile(imagePath: 'assets/images/google_logo.png'),
-                                      SizedBox(width: 20),
-                                      SquareTile(imagePath: 'assets/images/apple_logo.png')
-                                    ],),
+                                        SquareTile(
+                                            imagePath:
+                                                'assets/images/google_logo.png'),
+                                        SizedBox(width: 20),
+                                        SquareTile(
+                                            imagePath:
+                                                'assets/images/apple_logo.png')
+                                      ],
+                                    ),
                                     const SizedBox(height: 20),
-                                    
+                                    loginOption(),
                                   ],
                                 )),
                           ),
@@ -251,6 +291,27 @@ class _MyRegisterState extends State<MyRegister> {
           ],
         ),
       ),
+    );
+  }
+
+  Row loginOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Already have an account?",
+            style: TextStyle(color: Colors.white70, fontSize: 18)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MyLogin()));
+          },
+          child: const Text(
+            " Sign In",
+            style: TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
     );
   }
 }

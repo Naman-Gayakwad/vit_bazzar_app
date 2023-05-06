@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vit_bazzar_app/screens/test_homescreen.dart';
 import 'package:vit_bazzar_app/utils/square_tile.dart';
+import 'package:vit_bazzar_app/utils/reusable_widget.dart';
+import 'package:vit_bazzar_app/screens/register.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -137,7 +141,7 @@ Widget buildLoginBtn() {
 
 Widget buildSignUpBtn() {
   return GestureDetector(
-    onTap: () => print("sign up button pressed"),
+    onTap: () => print('sign up button was pressed'),
     child: RichText(
       text: const TextSpan(children: [
         TextSpan(
@@ -145,18 +149,22 @@ Widget buildSignUpBtn() {
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
-            )), 
+            )),
         TextSpan(
-          text: 'Sign Up',
-          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold)
-        )
+            text: 'Sign Up',
+            style: TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold))
       ]),
-      
     ),
   );
 }
 
 class _MyLoginState extends State<MyLogin> {
+  String? errorMessage = '';
+  bool isLogin = true;
+
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _passwordTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -205,22 +213,50 @@ class _MyLoginState extends State<MyLogin> {
                                           color: Colors.white, fontSize: 15),
                                     ),
                                     const SizedBox(height: 50),
-                                    buildEmail(),
+                                    reusableTextField(
+                                        "Enter Your Email",
+                                        Icons.email,
+                                        false,
+                                        _emailTextController),
                                     const SizedBox(height: 20),
-                                    buildPassword(),
+                                    reusableTextField(
+                                        "Enter Your Password",
+                                        Icons.lock,
+                                        true,
+                                        _passwordTextController),
                                     buildForgotPassBtn(),
-                                    buildLoginBtn(),
+                                    firebaseUIButton(context, "Sign In", () {
+                                      FirebaseAuth.instance
+                                          .signInWithEmailAndPassword(
+                                              email: _emailTextController.text,
+                                              password:
+                                                  _passwordTextController.text)
+                                          .then((value) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomeScreen()));
+                                      }).onError((error, stackTrace) {
+                                        print("Error ${error.toString()}");
+                                      });
+                                    }),
                                     const SizedBox(height: 30),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: const [
-                                      SquareTile(imagePath: 'assets/images/google_logo.png'),
-                                      SizedBox(width: 20),
-                                      SquareTile(imagePath: 'assets/images/apple_logo.png')
-                                    ],),
+                                        SquareTile(
+                                            imagePath:
+                                                'assets/images/google_logo.png'),
+                                        SizedBox(width: 20),
+                                        SquareTile(
+                                            imagePath:
+                                                'assets/images/apple_logo.png')
+                                      ],
+                                    ),
                                     const SizedBox(height: 20),
-                                    buildSignUpBtn(),
-                                    
+                                    signUpOption()
                                   ],
                                 )),
                           ),
@@ -232,4 +268,42 @@ class _MyLoginState extends State<MyLogin> {
       ),
     );
   }
+
+  Row signUpOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Don't have account?",
+            style: TextStyle(color: Colors.white70, fontSize: 18)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MyRegister()));
+          },
+          child: const Text(
+            " Sign Up",
+            style: TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
+    );
+  }
+
+  //   Widget forgetPassword(BuildContext context) {
+  //   return Container(
+  //     width: MediaQuery.of(context).size.width,
+  //     height: 35,
+  //     alignment: Alignment.bottomRight,
+  //     child: TextButton(
+  //       child: const Text(
+  //         "Forgot Password?",
+  //         style: TextStyle(color: Colors.white70),
+  //         textAlign: TextAlign.right,
+  //       ),
+  //       onPressed: () => Navigator.push(
+  //           context, MaterialPageRoute(builder: (context) => ResetPassword())),
+  //     ),
+  //   );
+  // }
 }

@@ -9,11 +9,16 @@ import 'package:vit_bazzar_app/screens/splash.dart';
 
 import 'firebase_options.dart';
 
+// Future <void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+// );
+//   runApp(const MyApp());
+// }
 Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
