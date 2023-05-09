@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +28,32 @@ class _BannerWidgetState extends State<BannerWidget> {
     });
   }
 
+  int _currentPage = 0;
+  final PageController _pageController = PageController(
+    initialPage: 0,
+  );
+
   @override
   void initState() {
     getBanners();
     super.initState();
+    Timer.periodic(const Duration(seconds: 3), (Timer timer) {
+      return setState(() {
+        if (_currentPage < _bannerImage.length) {
+          _currentPage++;
+        } else {
+          _currentPage = 0;
+        }
+        _pageController.animateToPage(
+          _currentPage,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeIn,
+        );
+      });
+    });
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +66,7 @@ class _BannerWidgetState extends State<BannerWidget> {
             color: Colors.yellow.shade700,
             borderRadius: BorderRadius.circular(10)),
         child: PageView.builder(
+          controller: _pageController,
             itemCount: _bannerImage.length,
             itemBuilder: (context, index) {
               return Image.network(_bannerImage[index]);
