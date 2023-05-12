@@ -53,8 +53,6 @@ class _BannerWidgetState extends State<BannerWidget> {
     });
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -66,11 +64,12 @@ class _BannerWidgetState extends State<BannerWidget> {
             color: Colors.yellow.shade700,
             borderRadius: BorderRadius.circular(10)),
         child: PageView.builder(
-          controller: _pageController,
+            controller: _pageController,
             itemCount: _bannerImage.length,
-            itemBuilder: (context, index) {
-              return Image.network(_bannerImage[index]);
-            }),
+            itemBuilder: (context, index)
+             {
+              return Image.network(_bannerImage[index],fit:BoxFit.cover);
+             }),
       ),
     );
   }
