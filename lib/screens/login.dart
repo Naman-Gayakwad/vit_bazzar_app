@@ -253,25 +253,25 @@ class _MyLoginState extends State<MyLogin> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children:  [
-                                        RoundedLoadingButton(
-                                          controller: googleController, 
-                                          onPressed: (){
-                                            Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    MainPage()));
-                                          }, 
-                                          child:Image.asset('assets/images/google_logo.png')
-                                          ),
+                                        // RoundedLoadingButton(
+                                        //   controller: googleController, 
+                                        //   onPressed: (){
+                                        //     Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             MainPage()));
+                                        //   }, 
+                                        //   child:Image.asset('assets/images/google_logo.png')
+                                        //   ),
 
-                                        // SquareTile(
-                                        //     imagePath:
-                                        //         'assets/images/google_logo.png', controller: null,),
-                                        // SizedBox(width: 20),
-                                        // SquareTile(
-                                        //     imagePath:
-                                        //         'assets/images/apple_logo.png', controller: null,)
+                                        SquareTile(
+                                            imagePath:
+                                                'assets/images/google_logo.png', controller: null,),
+                                        SizedBox(width: 20),
+                                        SquareTile(
+                                            imagePath:
+                                                'assets/images/apple_logo.png', controller: null,)
                                       ],
                                     ),
           

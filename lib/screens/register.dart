@@ -261,7 +261,7 @@ class _MyRegisterState extends State<MyRegister> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    HomeScreen()));
+                                                    MainPage()));
                                       }).onError((error, stackTrace) {
                                         print("Error ${error.toString()}");
                                       });
