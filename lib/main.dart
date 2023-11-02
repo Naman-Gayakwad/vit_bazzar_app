@@ -6,6 +6,7 @@ import 'package:vit_bazzar_app/screens/login.dart';
 import 'package:vit_bazzar_app/screens/register.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:vit_bazzar_app/screens/splash.dart';
+import 'package:vit_bazzar_app/vendor/views/auth/vendor_register_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -29,11 +30,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
+      home:  Scaffold(
           body: Splash(),
           ),
     );

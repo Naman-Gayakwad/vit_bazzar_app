@@ -249,7 +249,7 @@ class _MyLoginState extends State<MyLogin> {
                                       });
                                     }),
                                     const SizedBox(height: 30),
-                                    Row(
+                                    const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children:  [

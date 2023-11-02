@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.3
-  google_sign_in: ^6.1.0
+  google_sign_in: ^5.2.1
   firebase_core: ^2.10.0
   cloud_firestore: ^4.5.3
   firebase_auth: ^4.4.2
@@ -42,6 +42,10 @@ dependencies:
   provider: ^6.0.5
   connectivity_plus: ^3.0.3
   rounded_loading_button: ^2.1.0
+  country_state_city_picker: ^1.2.8
+  flutter_easyloading: ^3.0.5
+  flutterfire_ui: ^0.4.3+20
+  firebase_ui_auth: 1.4.0
   
     
 
