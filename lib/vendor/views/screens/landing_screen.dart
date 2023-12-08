@@ -76,6 +76,9 @@ class LandingScreen extends StatelessWidget {
                   },
                   child: Text('Logout'),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
               ],
             )),
           );
