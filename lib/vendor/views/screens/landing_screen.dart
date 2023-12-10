@@ -79,6 +79,17 @@ class LandingScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
+                TextButton(
+                  onPressed: () async {
+                    await _vendorsStream
+                        .doc(_auth.currentUser!.uid)
+                        .delete()
+                        .then((value) => print("User Deleted"))
+                        .catchError((error) => print("Failed to delete user: $error"));
+                    await _auth.signOut();
+                  },
+                  child: Text('Delete Account'),
+                ), 
               ],
             )),
           );
