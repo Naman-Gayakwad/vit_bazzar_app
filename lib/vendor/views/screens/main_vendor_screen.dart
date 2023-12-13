@@ -14,6 +14,9 @@ class MainVendorScreen extends StatelessWidget {
           await FirebaseAuth.instance.signOut();
         },
         child: Text('Sign Out' , style: TextStyle(color: Colors.white),),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.red),
+        ),
 
       ),
      ),
