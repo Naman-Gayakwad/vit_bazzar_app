@@ -6,7 +6,6 @@ import 'package:vit_bazzar_app/vendor/models/vendor_user_models.dart';
 import 'package:vit_bazzar_app/vendor/views/auth/vendor_register_screen.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/main_vendor_screen.dart';
 
-
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
 
@@ -79,17 +78,29 @@ class LandingScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                
                 TextButton(
                   onPressed: () async {
                     await _vendorsStream
                         .doc(_auth.currentUser!.uid)
                         .delete()
                         .then((value) => print("User Deleted"))
-                        .catchError((error) => print("Failed to delete user: $error"));
+                        .catchError(
+                            (error) => print("Failed to delete user: $error"));
                     await _auth.signOut();
                   },
                   child: Text('Delete Account'),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    await _vendorsStream
+                        .doc(_auth.currentUser!.uid)
+                        .update({'approved': true})
+                        .then((value) => print("User Approved"))
+                        .catchError(
+                            (error) => print("Failed to approve user: $error"));
+                    await _auth.signOut();
+                  },
+                  child: Text('Approve Account'),
                 ),
               ],
             )),
