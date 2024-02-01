@@ -3,17 +3,17 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:vit_bazzar_app/screens/mainpage.dart';
-import 'package:vit_bazzar_app/screens/test_homescreen.dart';
+// import 'package:vit_bazzar_app/screens/test_homescreen.dart';
 import 'package:vit_bazzar_app/utils/square_tile.dart';
 import 'package:vit_bazzar_app/utils/reusable_widget.dart';
 import 'package:vit_bazzar_app/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'home.dart';
+// import 'home.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 // import 'package:vit_bazzar_app/screens/register.dart';
 // import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:vit_bazzar_app/screens/splash.dart';
+import 'package:vit_bazzar_app/vendor/views/screens/main_vendor_screen.dart';
 // import 'package:vit_bazzar_app/vendor/views/auth/vendor_register_screen.dart';
 
 import 'firebase_options.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:  Scaffold(
-          body: Splash(),
+          body: MainVendorScreen(),
           ),
     );
   }
