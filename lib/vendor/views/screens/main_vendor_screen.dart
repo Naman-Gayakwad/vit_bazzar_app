@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/earning_screen.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/edit_product_screen.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/upload_screen.dart';
-import 'package:vit_bazzar_app/vendor/views/screens/vendor_account_screen.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/vendor_logout_screen.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/vendor_order_screen.dart';
 
