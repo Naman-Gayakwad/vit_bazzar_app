@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:vit_bazzar_app/providers/product_provider.dart';
+import 'package:intl/intl.dart';
 
 class GeneralScreen extends StatefulWidget {
   @override
@@ -32,8 +35,16 @@ class _GeneralScreenState extends State<GeneralScreen> {
     super.initState();
   }
 
+  String formateDate(date) {
+    final outPutDataFormat = DateFormat('dd-MM-yyyy');
+    final outPutDate = outPutDataFormat.format(date);
+    return outPutDate;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final ProductProvider _productProvider =
+        Provider.of<ProductProvider>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -41,6 +52,9 @@ class _GeneralScreenState extends State<GeneralScreen> {
           child: Column(
             children: [
               TextFormField(
+                onChanged: (value) {
+                  _productProvider.getFormData(productName: value);
+                }, //product name
                 decoration: InputDecoration(
                   labelText: 'Enter the product name',
                 ),
@@ -49,6 +63,10 @@ class _GeneralScreenState extends State<GeneralScreen> {
                 height: 20,
               ),
               TextFormField(
+                onChanged: (value) {
+                  _productProvider.getFormData(
+                      productPrice: double.parse(value));
+                }, //product price
                 decoration: InputDecoration(
                   labelText: 'Enter the product Price',
                 ),
@@ -57,6 +75,9 @@ class _GeneralScreenState extends State<GeneralScreen> {
                 height: 20,
               ),
               TextFormField(
+                onChanged: (value) {
+                  _productProvider.getFormData(quantity: int.parse(value));
+                }, //product quantity
                 decoration: InputDecoration(
                   labelText: 'Enter the product Quantity',
                 ),
@@ -71,7 +92,11 @@ class _GeneralScreenState extends State<GeneralScreen> {
                           value: e,
                         ))
                     .toList(),
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState(() {
+                    _productProvider.getFormData(category: value);
+                  });
+                },
                 decoration: InputDecoration(
                   labelText: 'Select the category',
                 ),
@@ -82,6 +107,9 @@ class _GeneralScreenState extends State<GeneralScreen> {
               TextFormField(
                 maxLines: 10,
                 maxLength: 800,
+                onChanged: ((value) {
+                  _productProvider.getFormData(productDescription: value);
+                }),
                 decoration: InputDecoration(
                   labelText: 'Enter the product Description',
                   border: OutlineInputBorder(
@@ -94,14 +122,24 @@ class _GeneralScreenState extends State<GeneralScreen> {
               Row(
                 children: [
                   TextButton(
-                      onPressed: () {
-                        showDatePicker(
-                            context: context,
-                            initialDate: DateTime.now(),
-                            firstDate: DateTime.now(),
-                            lastDate: DateTime(5000));
-                      },
-                      child: Text('Suhedule'))
+                    onPressed: () {
+                      showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime.now(),
+                              lastDate: DateTime(5000))
+                          .then((value) {
+                        setState(() {
+                          _productProvider.getFormData(suheduleDate: value);
+                        });
+                      });
+                    },
+                    child: Text('Suhedule'),
+                  ),
+                  if (_productProvider.productData['suheduleDate'] != null)
+                    Text(
+                      formateDate(_productProvider.productData['suheduleDate']),
+                    ),
                 ],
               )
             ],
