@@ -18,39 +18,41 @@ class UploadScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            isScrollable: true,
-            tabs: const [
-              Tab(
-                text: 'General',
-              ),
-              Tab(
-                text: 'Shipping',
-              ),
-              Tab(
-                text: 'Attributes',
-              ),
-              Tab(
-                text: 'Images',
-              ),
-            ],
+          appBar: AppBar(
+            bottom: TabBar(
+              isScrollable: true,
+              tabs: const [
+                Tab(
+                  text: 'General',
+                ),
+                Tab(
+                  text: 'Shipping',
+                ),
+                Tab(
+                  text: 'Attributes',
+                ),
+                Tab(
+                  text: 'Images',
+                ),
+              ],
+            ),
           ),
-        ),
-        body: TabBarView(children: [
-          GeneralScreen(),
-          ShippingScreen(),
-          AttributeScreen(),
-          ImageScreen(),
-        ]),
-        bottomSheet: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-            onPressed: () {},
-            child: const Text('Save'),
-          ),
-        )
-      ),
+          body: TabBarView(children: [
+            GeneralScreen(),
+            ShippingScreen(),
+            AttributeScreen(),
+            ImageScreen(),
+          ]),
+          bottomSheet: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('Save', style: TextStyle(color: Colors.white),),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  side: BorderSide(color: Colors.black, width: 0.5),
+                )),
+          )),
     );
   }
 }

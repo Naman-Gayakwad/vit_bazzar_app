@@ -46,6 +46,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   firebase_ui_auth: ^1.12.1
   flutter_datetime_picker_plus: ^2.1.0
+  uuid: ^4.3.3
   
   
     

@@ -2,6 +2,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 import 'package:vit_bazzar_app/providers/product_provider.dart';
 // import 'package:vit_bazzar_app/screens/login.dart';
@@ -37,13 +38,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: MainVendorScreen(),
+        body: MainVendorScreen(),    
       ),
+      builder: EasyLoading.init(),
     );
   }
 }
