@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
@@ -15,12 +16,15 @@ class ImageScreen extends StatefulWidget {
   State<ImageScreen> createState() => _ImageScreenState();
 }
 
-class _ImageScreenState extends State<ImageScreen> {
+class _ImageScreenState extends State<ImageScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   final ImagePicker picker = ImagePicker();
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
   List<File> _images = [];
-  List<String> _imagesUrlList = [];
+  List<String> _imageUrlList = [];
 
   choosimage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -36,6 +40,7 @@ class _ImageScreenState extends State<ImageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final ProductProvider _productProvider =
         Provider.of<ProductProvider>(context);
     return Column(
@@ -45,50 +50,57 @@ class _ImageScreenState extends State<ImageScreen> {
         ),
         ElevatedButton(
           onPressed: choosimage,
-          child: const Text('Choose Image', style: TextStyle(color: Colors.white),),
+          child: const Text(
+            'Choose Image',
+            style: TextStyle(color: Colors.white),
+          ),
           style: ElevatedButton.styleFrom(
             primary: Colors.blue,
             side: BorderSide(color: Colors.black, width: 0.5),
           ),
         ),
-        Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 4.0,
-              mainAxisSpacing: 4.0,
-            ),
-            itemCount: _images.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Image.file(
-                _images[index],
-                fit: BoxFit.cover,
-              );
-            },
+        GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 4.0,
+            mainAxisSpacing: 4.0,
           ),
-        ),
-        SizedBox(
-          height: 20,
+          itemCount: _images.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Image.file(
+              _images[index],
+              fit: BoxFit.cover,
+            );
+          },
         ),
         TextButton(
-            onPressed: () async {
-              EasyLoading.show(status: 'Uploading Images');
-              for (var img in _images) {
-                Reference ref =
-                    _storage.ref().child('productImages').child(Uuid().v4());
-                await ref.putFile(img).whenComplete(() async {
-                  await ref.getDownloadURL().then((value) {
-                    setState(() {
-                      _imagesUrlList.add(value);
-                      _productProvider.getFormData(
-                          imagesUrlList: _imagesUrlList);
-                      EasyLoading.dismiss();
-                    });
+          onPressed: () async {
+            EasyLoading.show(status: 'Uploading Images');
+            for (var img in _images) {
+              Reference ref =
+                  _storage.ref().child('productImages').child(Uuid().v4());
+              await ref.putFile(img).whenComplete(() async {
+                await ref.getDownloadURL().then((value) {
+                  setState(() {
+                    _imageUrlList.add(value);
                   });
                 });
-              }
-            },
-            child: Text('Upload Images'))
+              });
+            }
+            setState(() {
+              _productProvider.productData['imagesUrlList'] = _imageUrlList;
+              EasyLoading.dismiss();
+            });
+          },
+          child: Text(
+            'Upload Images',
+            style: TextStyle(
+              color: Colors.blue,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ],
     );
   }
