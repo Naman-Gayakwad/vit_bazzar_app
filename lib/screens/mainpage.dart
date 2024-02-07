@@ -80,7 +80,7 @@ class _MainPageState extends State<MainPage> {
                 currentIndex:
                     widget.tapIndex == null ? currentIndex : widget.tapIndex!,
                 selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.black,
+                unselectedItemColor: Colors.yellowAccent,
                 showSelectedLabels: true,
                 showUnselectedLabels: true,  
                 type: BottomNavigationBarType.fixed,

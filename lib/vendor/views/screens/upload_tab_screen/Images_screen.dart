@@ -45,9 +45,6 @@ class _ImageScreenState extends State<ImageScreen>
         Provider.of<ProductProvider>(context);
     return Column(
       children: [
-        SizedBox(
-          height: 20,
-        ),
         ElevatedButton(
           onPressed: choosimage,
           child: const Text(
@@ -58,20 +55,6 @@ class _ImageScreenState extends State<ImageScreen>
             primary: Colors.blue,
             side: BorderSide(color: Colors.black, width: 0.5),
           ),
-        ),
-        GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 4.0,
-            mainAxisSpacing: 4.0,
-          ),
-          itemCount: _images.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Image.file(
-              _images[index],
-              fit: BoxFit.cover,
-            );
-          },
         ),
         TextButton(
           onPressed: () async {
@@ -99,6 +82,25 @@ class _ImageScreenState extends State<ImageScreen>
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Flexible(
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 4.0,
+              mainAxisSpacing: 4.0,
+            ),
+            itemCount: _images.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Image.file(
+                _images[index],
+                fit: BoxFit.cover,
+              );
+            },
           ),
         ),
       ],

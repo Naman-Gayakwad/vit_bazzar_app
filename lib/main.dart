@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:vit_bazzar_app/providers/product_provider.dart';
 // import 'package:vit_bazzar_app/screens/login.dart';
 // import 'package:vit_bazzar_app/screens/register.dart';
-// import 'package:vit_bazzar_app/screens/mainpage.dart';
+import 'package:vit_bazzar_app/screens/mainpage.dart';
 import 'package:vit_bazzar_app/screens/splash.dart';
 import 'package:vit_bazzar_app/vendor/views/screens/main_vendor_screen.dart';
 // import 'package:vit_bazzar_app/vendor/views/auth/vendor_register_screen.dart';
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: MainVendorScreen(),    
+        body: MainPage(),    
       ),
       builder: EasyLoading.init(),
     );
