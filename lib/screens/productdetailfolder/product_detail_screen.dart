@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:vit_bazzar_app/providers/cart_provider.dart';
 
 class ProductsDetailScreen extends StatefulWidget {
   final dynamic productData;
@@ -22,6 +24,7 @@ class _ProductsDetailScreenState extends State<ProductsDetailScreen> {
   String? _selectedSize;
   @override
   Widget build(BuildContext context) {
+    final CartProvider _cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -243,7 +246,29 @@ class _ProductsDetailScreenState extends State<ProductsDetailScreen> {
           height: 50,
           width: double.infinity,
           child: ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              if (_selectedSize == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Please select a size'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+                return;
+              } else {
+                _cartProvider.addProductToCart(
+                  widget.productData['productName'],
+                  widget.productData['productId'],
+                  widget.productData['productPrice'],
+                  1,
+                  widget.productData['Quantity'],
+                  widget.productData['vendorId'],
+                  _selectedSize!,
+                  widget.productData['imagesUrlList'],
+                  widget.productData['suheduleDate'],
+                );
+              }
+            },
             icon: Icon(Icons.shopping_cart),
             label: Text(
               'Add to Cart',

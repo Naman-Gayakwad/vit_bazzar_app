@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
@@ -84,6 +85,7 @@ class UploadScreen extends StatelessWidget {
                             _productProvider.productData['shippingCharge'],
                         'imagesUrlList':
                             _productProvider.productData['imagesUrlList'],
+                        'vendorId': FirebaseAuth.instance.currentUser!.uid,
                         'createdDate': Timestamp.now(),
                       }).whenComplete(() {
                         _productProvider.clearData();

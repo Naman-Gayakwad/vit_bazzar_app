@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:vit_bazzar_app/screens/widgets/home_product.dart';
+import 'package:vit_bazzar_app/screens/widgets/main_product_widgets.dart';
 
 class CategoryText extends StatefulWidget {
   @override
@@ -83,6 +84,7 @@ class _CategoryTextState extends State<CategoryText> {
               );
             },
           ),
+          if (_selectedCategory == null) MainProductsWidget(),
           if (_selectedCategory != null)
             HomeproductWidget(categoryName: _selectedCategory!),
         ],

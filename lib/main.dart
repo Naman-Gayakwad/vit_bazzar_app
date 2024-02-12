@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
+import 'package:vit_bazzar_app/providers/cart_provider.dart';
 import 'package:vit_bazzar_app/providers/product_provider.dart';
 // import 'package:vit_bazzar_app/screens/login.dart';
 // import 'package:vit_bazzar_app/screens/register.dart';
@@ -23,6 +24,9 @@ Future<void> main() async {
     ChangeNotifierProvider(create: (_) {
       return ProductProvider();
     }),
+    ChangeNotifierProvider(create: (_) {
+      return CartProvider();
+    }),
   ], child: const MyApp()));
 }
 // Future <void> main() async {
@@ -38,13 +42,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: MainPage(),    
+        body: MainPage(),
       ),
       builder: EasyLoading.init(),
     );
