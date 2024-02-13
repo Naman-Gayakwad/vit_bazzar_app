@@ -254,18 +254,18 @@ class _ProductsDetailScreenState extends State<ProductsDetailScreen> {
                     backgroundColor: Colors.red,
                   ),
                 );
-                return;
               } else {
                 _cartProvider.addProductToCart(
                   widget.productData['productName'],
                   widget.productData['productId'],
                   widget.productData['productPrice'],
                   1,
-                  widget.productData['Quantity'],
+                  widget.productData['productQuantity'],
                   widget.productData['vendorId'],
                   _selectedSize!,
                   widget.productData['imagesUrlList'],
                   widget.productData['suheduleDate'],
+                  
                 );
               }
             },

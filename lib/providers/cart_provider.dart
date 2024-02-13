@@ -4,6 +4,15 @@ import 'package:vit_bazzar_app/screens/models/cart_attributes.dart';
 
 class CartProvider with ChangeNotifier {
   Map<String, CartAttr> _cartItems = {};
+
+  double calculateTotalAmount() {
+    double totalAmount = 0;
+    _cartItems.forEach((key, value) {
+      totalAmount += value.productPrice * value.productQuantity;
+    });
+    return totalAmount;
+  }
+
   Map<String, CartAttr> get getCartItems {
     return {..._cartItems};
   }
@@ -59,6 +68,16 @@ class CartProvider with ChangeNotifier {
 
   void decreament(CartAttr cartAttr) {
     cartAttr.decreaseProductQuantity();
+    notifyListeners();
+  }
+
+  removeItem(String productId) {
+    _cartItems.remove(productId);
+    notifyListeners();
+  }
+
+  removeAllItems() {
+    _cartItems.clear();
     notifyListeners();
   }
 }
