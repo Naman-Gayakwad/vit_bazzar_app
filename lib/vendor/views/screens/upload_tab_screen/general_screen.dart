@@ -82,7 +82,8 @@ class _GeneralScreenState extends State<GeneralScreen>
                 },
                 onChanged: (value) {
                   _productProvider.getFormData(
-                      productPrice: double.parse(value));
+                    productPrice: double.parse(value),
+                  );
                 }, //product price
                 decoration: InputDecoration(
                   labelText: 'Enter the product Price',
