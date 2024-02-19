@@ -12,14 +12,14 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children:  [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 1,
           ),
-          BannerWidget(),
+          const BannerWidget(),
           CategoryText(),
         ],
       ),

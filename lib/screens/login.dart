@@ -171,7 +171,7 @@ class _MyLoginState extends State<MyLogin> {
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
   final RoundedLoadingButtonController googleController =
-      RoundedLoadingButtonController(); 
+      RoundedLoadingButtonController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -184,107 +184,100 @@ class _MyLoginState extends State<MyLogin> {
         body: Stack(
           children: [
             Container(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  padding: const EdgeInsets.all(16.0),
-                  decoration: BoxDecoration(border: Border.all()),
-                  child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                      child: Align(
-                        child: SizedBox(
-                          width: 400,
-                          height: 700,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(32),
-                              border: Border.all(
-                                  color:
-                                      const Color.fromARGB(255, 255, 255, 255)),
-                              color: const Color(0x16fcfcfc),
-                            ),
-                            child: SingleChildScrollView(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 25, vertical: 60),
-                                child: Column(
+              alignment: Alignment.topCenter,
+              child: Container(
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(border: Border.all()),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                  child: Align(
+                    child: SizedBox(
+                      width: 400,
+                      height: 700,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32),
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 255, 255, 255)),
+                          color: const Color(0x16fcfcfc),
+                        ),
+                        child: SingleChildScrollView(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 60),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Welcome Back',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 32),
+                                ),
+                                const SizedBox(height: 10),
+                                const Text(
+                                  'Sign in to your account',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
+                                const SizedBox(height: 50),
+                                reusableTextField("Enter Your Email",
+                                    Icons.email, false, _emailTextController),
+                                const SizedBox(height: 20),
+                                reusableTextField("Enter Your Password",
+                                    Icons.lock, true, _passwordTextController),
+                                buildForgotPassBtn(),
+                                firebaseUIButton(context, "Sign In", () {
+                                  FirebaseAuth.instance
+                                      .signInWithEmailAndPassword(
+                                          email: _emailTextController.text,
+                                          password:
+                                              _passwordTextController.text)
+                                      .then((value) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MainPage()));
+                                  }).onError((error, stackTrace) {
+                                    print("Error ${error.toString()}");
+                                  });
+                                }),
+                                const SizedBox(height: 30),
+                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Text(
-                                      'Welcome Back',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 32),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Text(
-                                      'Sign in to your account',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 15),
-                                    ),
-                                    const SizedBox(height: 50),
-                                    reusableTextField(
-                                        "Enter Your Email",
-                                        Icons.email,
-                                        false,
-                                        _emailTextController),
-                                    const SizedBox(height: 20),
-                                    reusableTextField(
-                                        "Enter Your Password",
-                                        Icons.lock,
-                                        true,
-                                        _passwordTextController),
-                                    buildForgotPassBtn(),
-                                    firebaseUIButton(context, "Sign In", () {
-                                      FirebaseAuth.instance
-                                          .signInWithEmailAndPassword(
-                                              email: _emailTextController.text,
-                                              password:
-                                                  _passwordTextController.text)
-                                          .then((value) {
+                                    RoundedLoadingButton(
+                                      controller: googleController,
+                                      onPressed: (){
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    MainPage()));
-                                      }).onError((error, stackTrace) {
-                                        print("Error ${error.toString()}");
-                                      });
-                                    }),
-                                    const SizedBox(height: 30),
-                                    const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children:  [
-                                        // RoundedLoadingButton(
-                                        //   controller: googleController, 
-                                        //   onPressed: (){
-                                        //     Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) =>
-                                        //             MainPage()));
-                                        //   }, 
-                                        //   child:Image.asset('assets/images/google_logo.png')
-                                        //   ),
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MainPage()));
+                                      },
+                                      child:Image.asset('assets/images/google_logo.png')
+                                      ),
 
-                                        SquareTile(
-                                            imagePath:
-                                                'assets/images/google_logo.png', controller: null,),
-                                        SizedBox(width: 20),
-                                        SquareTile(
-                                            imagePath:
-                                                'assets/images/apple_logo.png', controller: null,)
-                                      ],
+                                    SquareTile(
+                                      imagePath:
+                                          'assets/images/google_logo.png',
+                                      controller: null,
                                     ),
-          
-                                    const SizedBox(height: 20),
-                                    signUpOption()
+                                    SizedBox(width: 20),
+                                    SquareTile(
+                                      imagePath: 'assets/images/apple_logo.png',
+                                      controller: null,
+                                    )
                                   ],
-                                )),
-                          ),
-                        ),
+                                ),
+                                const SizedBox(height: 20),
+                                signUpOption()
+                              ],
+                            )),
                       ),
                     ),
+                  ),
                 ),
               ),
+            ),
           ],
         ),
       ),
@@ -330,26 +323,26 @@ class _MyLoginState extends State<MyLogin> {
   // }
 }
 // RoundedLoadingButton(
-                                        //   controller: googleController, 
-                                        //   onPressed: () {
-                                        //     Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) =>
-                                        //             MainPage()));
-                                        //   }, 
-                                        //   child: SquareTile(
-                                        //     imagePath:
-                                        //         'assets/images/google_logo.png', controller: null,),),
-                                         // RoundedLoadingButton(
-                                        //   controller: googleController, 
-                                        //   onPressed: () {
-                                        //     Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) =>
-                                        //             MainPage()));
-                                        //   }, 
-                                        //   child: SquareTile(
-                                        //     imagePath:
-                                        //         'assets/images/apple_logo.png', controller: null,),),
+//   controller: googleController,
+//   onPressed: () {
+//     Navigator.push(
+//     context,
+//     MaterialPageRoute(
+//         builder: (context) =>
+//             MainPage()));
+//   },
+//   child: SquareTile(
+//     imagePath:
+//         'assets/images/google_logo.png', controller: null,),),
+// RoundedLoadingButton(
+//   controller: googleController,
+//   onPressed: () {
+//     Navigator.push(
+//     context,
+//     MaterialPageRoute(
+//         builder: (context) =>
+//             MainPage()));
+//   },
+//   child: SquareTile(
+//     imagePath:
+//         'assets/images/apple_logo.png', controller: null,),),
