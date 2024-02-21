@@ -10,8 +10,20 @@ class MyOrder extends StatefulWidget {
 class _MyOrderState extends State<MyOrder> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 51, 129, 238),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Order'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const <Widget>[
+            Text(
+              'My Order',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
