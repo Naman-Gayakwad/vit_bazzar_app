@@ -25,7 +25,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
         }
 
         return GridView.builder(
-          
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
@@ -52,7 +51,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 child: Column(
                   children: [
                     Image.network(categoryData['image']),
-                    Text(categoryData['categoryName'], style: TextStyle(color: Colors.yellow.shade800),),
+                    Text(
+                      categoryData['categoryName'],
+                      style: TextStyle(color: Colors.yellow.shade800, fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),
