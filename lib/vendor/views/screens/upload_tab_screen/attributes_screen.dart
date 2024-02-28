@@ -73,7 +73,7 @@ class _AttributeScreenState extends State<AttributeScreen>
                         style: TextStyle(color: Colors.white),
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue,
+                        backgroundColor: Colors.blue,
                         shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(4.0),
                         ),
@@ -124,7 +124,7 @@ class _AttributeScreenState extends State<AttributeScreen>
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
-                primary: Colors.yellowAccent,
+                backgroundColor: Colors.yellowAccent,
                 shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.circular(4.0),
                 ),

@@ -121,7 +121,7 @@ class _CartState extends State<Cart> {
                 // Place order
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.yellow[800],
+                backgroundColor: Colors.yellow[800],
               ),
               child: Text(
                 'Place Order',

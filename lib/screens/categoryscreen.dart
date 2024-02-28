@@ -35,27 +35,37 @@ class _CategoryScreenState extends State<CategoryScreen> {
             final categoryData = snapshot.data!.docs[index];
             return Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Image.network(categoryData['image']),
-                    Text(
-                      categoryData['categoryName'],
-                      style: TextStyle(color: Colors.yellow.shade800, fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/product',
+                      arguments: categoryData.id);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Image.network(categoryData['image']),
+                      Text(
+                        categoryData['categoryName'],
+                        style: TextStyle(
+                            color: Colors.yellow.shade800,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );

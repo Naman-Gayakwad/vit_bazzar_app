@@ -106,7 +106,7 @@ class UploadScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    backgroundColor: Colors.blue,
                     side: BorderSide(color: Colors.black, width: 0.1),
                   )),
             )),
