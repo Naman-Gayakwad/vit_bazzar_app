@@ -21,6 +21,9 @@ class _HomeState extends State<Home> {
           ),
           const BannerWidget(),
           CategoryText(),
+          const SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );
