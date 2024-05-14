@@ -65,7 +65,7 @@ class _CartState extends State<Cart> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.remove),
+                    icon: const Icon(Icons.remove_circle,),
                     onPressed: cartData.productQuantity == 1
                         ? null
                         : () {
@@ -74,10 +74,10 @@ class _CartState extends State<Cart> {
                   ),
                   Text(
                     cartData.productQuantity.toString(),
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                   IconButton(
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add_circle, ),
                     onPressed: cartData.Quantity == cartData.productQuantity
                         ? null
                         : () {

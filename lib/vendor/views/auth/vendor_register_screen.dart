@@ -43,8 +43,17 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
     EasyLoading.show();
     if (_formKey.currentState!.validate()) {
       await _vendorController
-          .registerVendor(_image, bussinessName, email, phoneNumber,
-              countryValue, stateValue, cityValue, _taxStatus!, gstNumber)
+          .registerVendor(
+        _image,
+        bussinessName,
+        email,
+        phoneNumber,
+        countryValue,
+        stateValue,
+        cityValue,
+        _taxStatus!,
+        gstNumber,
+      )
           .whenComplete(() {
         EasyLoading.dismiss();
 
