@@ -20,7 +20,16 @@ class _MyOrderState extends State<MyOrder> {
           children: const <Widget>[
             Text(
               'My Order',
+
+
+
+
+
+              style: TextStyle(fontSize: 20),
+
             ),
+
+            
           ],
         ),
       ),
