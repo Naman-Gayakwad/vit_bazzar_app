@@ -24,20 +24,7 @@ class _HomeState extends State<Home> {
           const SizedBox(
             height: 10,
           ),
-          Text(
-            'Recent Posts',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            'Recent Posts',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          
         ],
       ),
     );
