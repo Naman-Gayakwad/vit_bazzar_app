@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vit_bazzar_app/screens/widgets/banner_widget.dart';
 import 'package:vit_bazzar_app/screens/widgets/category_text.dart';
+import 'package:vit_bazzar_app/screens/widgets/home_product.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -31,6 +32,7 @@ class _HomeState extends State<Home> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          const HomeproductWidget(categoryName: 'Recently Added'),
         ],
       ),
     );
