@@ -84,9 +84,9 @@ class _CartState extends State<Cart> {
                             _cartProvider.increament(cartData);
                           },
                   ),
-                  SizedBox(width: 20), // Add some space between the buttons
+                  const SizedBox(width: 20), // Add some space between the buttons
                   IconButton(
-                    icon: Icon(CupertinoIcons.cart_badge_minus),
+                    icon: const Icon(CupertinoIcons.cart_badge_minus),
                     onPressed: () {
                       _cartProvider.removeItem(cartData.productId);
                     },
@@ -98,20 +98,20 @@ class _CartState extends State<Cart> {
         },
       ),
       bottomSheet: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
           ),
           color: Colors.blue,
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Total: ₹ ${_cartProvider.calculateTotalAmount()}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.white,
               ),
@@ -123,7 +123,7 @@ class _CartState extends State<Cart> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.yellow[800],
               ),
-              child: Text(
+              child: const Text(
                 'Place Order',
                 style: TextStyle(
                   fontSize: 18,
