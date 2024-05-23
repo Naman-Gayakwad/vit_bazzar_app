@@ -16,13 +16,13 @@ class _CartState extends State<Cart> {
     final CartProvider _cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Cart',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
             onPressed: () {
               _cartProvider.removeAllItems();
             },
@@ -36,9 +36,9 @@ class _CartState extends State<Cart> {
           final cartData = _cartProvider.getCartItems.values.toList()[index];
           return Card(
             elevation: 2,
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: ListTile(
-              contentPadding: EdgeInsets.all(16),
+              contentPadding: const EdgeInsets.all(16),
               leading: Image.network(
                 cartData.imagesUrlList[0],
                 width: MediaQuery.of(context).size.width * 0.15,
@@ -46,18 +46,18 @@ class _CartState extends State<Cart> {
               ),
               title: Text(
                 cartData.productName,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     '₹ ${cartData.productPrice.toString()}',
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                   Text(
                     'Size: ${cartData.productSize}',
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ],
               ),
