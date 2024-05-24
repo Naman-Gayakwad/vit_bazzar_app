@@ -68,7 +68,7 @@ class MainProductsWidget extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               data['productName'],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
