@@ -256,13 +256,13 @@ class _MyLoginState extends State<MyLogin> {
                                       child:Image.asset('assets/images/google_logo.png')
                                       ),
 
-                                    SquareTile(
+                                    const SquareTile(
                                       imagePath:
                                           'assets/images/google_logo.png',
                                       controller: null,
                                     ),
                                     SizedBox(width: 20),
-                                    SquareTile(
+                                    const SquareTile(
                                       imagePath: 'assets/images/apple_logo.png',
                                       controller: null,
                                     )
