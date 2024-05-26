@@ -14,7 +14,7 @@ class _MyOrderState extends State<MyOrder> {
       appBar: AppBar(
         title: const Text('My Order'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
