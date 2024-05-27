@@ -17,7 +17,7 @@ class _MyOrderState extends State<MyOrder> {
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             Text(
               'My Order',
 
