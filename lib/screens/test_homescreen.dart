@@ -16,12 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          child: Text("Logout"),
+          child: const Text("Logout"),
           onPressed: () {
             FirebaseAuth.instance.signOut().then((value) {
               print("Signed Out");
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyLogin()));
+                  MaterialPageRoute(builder: (context) => const MyLogin()));
             });
           },
         ),
