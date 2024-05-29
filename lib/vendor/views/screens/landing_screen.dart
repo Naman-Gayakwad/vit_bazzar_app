@@ -51,31 +51,31 @@ class LandingScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text(
                   vendorUserModel.bussinessName.toString(),
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Your application has been sent to shop admin\n Admin will get back to you soon',
                   style: TextStyle(fontSize: 22),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextButton(
                   onPressed: () async {
                     await _auth.signOut();
                   },
-                  child: Text('Logout'),
+                  child: const Text('Logout'),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextButton(
@@ -88,7 +88,7 @@ class LandingScreen extends StatelessWidget {
                             (error) => print("Failed to delete user: $error"));
                     await _auth.signOut();
                   },
-                  child: Text('Delete Account'),
+                  child: const Text('Delete Account'),
                 ),
                 TextButton(
                   onPressed: () async {
@@ -100,7 +100,7 @@ class LandingScreen extends StatelessWidget {
                             (error) => print("Failed to approve user: $error"));
                     await _auth.signOut();
                   },
-                  child: Text('Approve Account'),
+                  child: const Text('Approve Account'),
                 ),
               ],
             )),
