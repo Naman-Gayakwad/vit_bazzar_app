@@ -36,7 +36,7 @@ class LandingScreen extends StatelessWidget {
               snapshot.data!.data()! as Map<String, dynamic>);
 
           if (vendorUserModel.approved == true) {
-            return MainVendorScreen();
+            return const MainVendorScreen();
           }
           return Padding(
             padding: const EdgeInsets.all(8.0),
