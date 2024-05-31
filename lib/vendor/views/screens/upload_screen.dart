@@ -95,19 +95,19 @@ class UploadScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) {
-                            return MainVendorScreen();
+                            return const MainVendorScreen();
                           }),
                         );
                       });
                     }
                   },
-                  child: const Text(
-                    'Save',
-                    style: TextStyle(color: Colors.white),
-                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     side: BorderSide(color: Colors.black, width: 0.1),
+                  ),
+                  child:  Text(
+                    'Save',
+                    style: TextStyle(color: Colors.white),
                   )),
             )),
       ),
