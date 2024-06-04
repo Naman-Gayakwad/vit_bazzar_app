@@ -22,7 +22,7 @@ class HomeproductWidget extends StatelessWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading products...");
+          return const Text("Loading products...");
         }
 
         return SizedBox(
